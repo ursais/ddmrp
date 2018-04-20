@@ -1,7 +1,7 @@
 # Copyright (C) 2018 - TODAY, Open Source Integrators
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models
+from odoo import models, _
 
 
 class MrpProduction(models.Model):
@@ -36,8 +36,12 @@ class MrpProduction(models.Model):
         product_equivalent = self._get_product_equivalent(bom_line,
                                                           line_data['qty'])
         if product_equivalent:
+            body = _('[%s] %s has been replaced by [%s] %s.' %
+                     sm.product_id.default_code, sm.product_id.name,
+                     product_equivalent.default_code, product_equivalent.name)
             sm.write({
                 'price_unit': product_equivalent.standard_price,
                 'product_id': product_equivalent.id,
             })
+            self.message_post(body=body)
         return sm
