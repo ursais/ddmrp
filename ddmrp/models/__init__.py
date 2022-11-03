@@ -4,7 +4,7 @@ from . import stock_buffer_profile_variability
 from . import stock_buffer_profile_lead_time
 from . import stock_buffer_profile
 from . import procurement_group
-from . import procurement_rule
+from . import stock_rule
 from . import product_adu_calculation_method
 from . import stock_warehouse
 from . import stock_warehouse_orderpoint

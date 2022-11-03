@@ -4,12 +4,12 @@
 from odoo import models
 
 
-class ProcurementRule(models.Model):
-    _inherit = 'procurement.rule'
+class StockRule(models.Model):
+    _inherit = 'stock.rule'
 
     def _prepare_mo_vals(self, product_id, product_qty, product_uom,
                          location_id, name, origin, values, bom):
-        result = super(ProcurementRule, self)._prepare_mo_vals(
+        result = super(StockRule, self)._prepare_mo_vals(
             product_id, product_qty, product_uom, location_id,
             name, origin, values, bom
         )
@@ -22,7 +22,7 @@ class ProcurementRule(models.Model):
 
     def _run_manufacture(self, product_id, product_qty, product_uom,
                          location_id, name, origin, values):
-        super(ProcurementRule, self)._run_manufacture(
+        super(StockRule, self)._run_manufacture(
             product_id, product_qty, product_uom,
             location_id, name, origin, values
         )

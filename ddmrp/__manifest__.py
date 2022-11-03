@@ -6,7 +6,7 @@
 {
     "name": "DDMRP",
     "summary": "Demand Driven Material Requirements Planning",
-    "version": "11.0.1.3.2",
+    "version": "12.0.1.0.0",
     "development_status": "Beta",
     "author": "Eficent, "
               "Odoo Community Association (OCA)",
@@ -46,7 +46,7 @@
         "views/purchase_order_line_view.xml",
         "views/mrp_bom_view.xml",
         "views/stock_move_views.xml",
-        "views/report_mrpbomstructure.xml",
+        #"views/report_mrpbomstructure.xml",
         "wizards/ddmrp_run_view.xml",
         "data/ir_cron.xml",
     ],
