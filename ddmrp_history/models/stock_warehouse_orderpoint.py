@@ -91,8 +91,9 @@ class StockWarehouseOrderpoint(models.Model):
             categories = ['top_of_red', 'top_of_yellow', 'top_of_green']
             data = {}
 
-            dates = [datetime.strptime(
-                r.date, DEFAULT_SERVER_DATETIME_FORMAT) for r in history]
+            #dates = [datetime.strptime(
+            #    r.date, DEFAULT_SERVER_DATETIME_FORMAT) for r in history]
+            dates = [r.date.date() for r in history]
             data['date'] = dates
             data[categories[0]] = [r.top_of_red for r in history]
             data[categories[1]] = [r.top_of_yellow -
@@ -182,8 +183,9 @@ class StockWarehouseOrderpoint(models.Model):
                           'top_of_yellow', 'top_of_red', 'dark_red']
             data = {}
 
-            dates = [datetime.strptime(
-                r.date, DEFAULT_SERVER_DATETIME_FORMAT) for r in history]
+            #dates = [datetime.strptime(
+            #    r.date, DEFAULT_SERVER_DATETIME_FORMAT) for r in history]
+            dates = [r.date.date() for r in history]
             data['date'] = dates
             data[categories[0]] = [(0 - start_stack) for r in history]
             data[categories[1]] = [(r.top_of_red/2) for r in history]
