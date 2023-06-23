@@ -15,4 +15,5 @@ class ProcurementGroup(models.Model):
         """ Override the standard method to disable the possibility to
         automatically procure from orderpoints and to automatically
         reserve stock moves."""
-        return True
+        #return True
+        return super(self, ProcurementGroup)._run_scheduler_tasks(use_new_cursor=use_new_cursor, company_id=company_id)
