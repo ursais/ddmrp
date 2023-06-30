@@ -9,8 +9,8 @@ from odoo.exceptions import Warning as UserError
 class StockSchedulerCompute(models.TransientModel):
     _inherit = 'stock.scheduler.compute'
 
-    @api.multi
-    def procure_calculation(self):
-        """Override standard method to disable the feature."""
-        raise UserError(_('The option to compute minimum stock rules '
-                          'automatically has been disabled.'))
+    #@api.multi
+    #def procure_calculation(self):
+    #    """Override standard method to disable the feature."""
+    #    raise UserError(_('The option to compute minimum stock rules '
+    #                      'automatically has been disabled.'))

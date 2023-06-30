@@ -10,10 +10,10 @@ from odoo import api, models
 class ProcurementGroup(models.Model):
     _inherit = 'procurement.group'
 
-    @api.model
-    def _run_scheduler_tasks(self, use_new_cursor=False, company_id=False):
-        """ Override the standard method to disable the possibility to
-        automatically procure from orderpoints and to automatically
-        reserve stock moves."""
-        #return True
-        return super(self, ProcurementGroup)._run_scheduler_tasks(use_new_cursor=use_new_cursor, company_id=company_id)
+    #@api.model
+    #def _run_scheduler_tasks(self, use_new_cursor=False, company_id=False):
+    #    """ Override the standard method to disable the possibility to
+    #    automatically procure from orderpoints and to automatically
+    #    reserve stock moves."""
+    #    #return True
+    #    return super(self, ProcurementGroup)._run_scheduler_tasks(use_new_cursor=use_new_cursor, company_id=company_id)
