@@ -521,6 +521,7 @@ class StockWarehouseOrderpoint(models.Model):
         self.ensure_one()
         return [('state', '=', 'done'), ('location_id', 'in', locations.ids),
                 ('location_dest_id', 'not in', locations.ids),
+                ('location_dest_id.usage', '!=', 'supplier'),
                 ('product_id', '=', self.product_id.id),
                 ('date', '>=', date_from),
                 ('date', '<=', date_to)]
@@ -578,6 +579,7 @@ class StockWarehouseOrderpoint(models.Model):
         return [('state', 'not in', ['done', 'cancel']),
                 ('location_id', 'in', locations.ids),
                 ('location_dest_id', 'not in', locations.ids),
+                ('location_dest_id.usage', '!=', 'supplier'),
                 ('product_id', '=', self.product_id.id),
                 ('date_expected', '>=', date_from),
                 ('date_expected', '<=', date_to)]
@@ -654,6 +656,7 @@ class StockWarehouseOrderpoint(models.Model):
                 ('state', 'in', ['waiting', 'confirmed', 'assigned']),
                 ('location_id', 'in', locations.ids),
                 ('location_dest_id', 'not in', locations.ids),
+                ('location_dest_id.usage', '!=', 'supplier'),
                 ('date_expected', '<=', date_to)]
 
     @api.multi
